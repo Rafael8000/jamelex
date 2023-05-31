@@ -52,8 +52,6 @@ public class LivroController {
             livro.get().setTitulo(titulo);
             livroRepo.save(livro.get());
             
-        
-        
         }
     return "redirect:/livro/list";
     }
@@ -68,4 +66,28 @@ public class LivroController {
         return "redirect:/livro/list";
 }
 
+@RequestMapping(value = "/delete", method = RequestMethod.POST)
+public String delete(@RequestParam("id") int id) {
+    livroRepo.deleteById(id);
+
+    return "redirect:/livro/list";
 }
+
+@RequestMapping("/isbn")
+public String isbn() {
+    return "/livro/isbn";
+}
+@RequestMapping(value = "/isbn", method = RequestMethod.POST)
+public String isbn(@RequestParam("isbn")String isbn){
+    
+    Livro livro = new Livro();
+    livro.setisbn(isbn);
+
+    livroRepo.save(livro);
+    return "redirect:/livro/list";
+
+
+}
+}
+
+

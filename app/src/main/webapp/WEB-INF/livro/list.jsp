@@ -21,9 +21,11 @@
             <tr>
                 <td>${item.id}</td>
                 <td>${item.titulo}</td>
+                <td> ${item.isbn}</td>
                 <td>
                     <a href="/livro/update?id=${item.id}" class="btn btn-warning">Editar</a>
                     <a href="/livro/update?id=${item.id}" class="btn btn-danger">Deletar</a>
+                    <a href="/livro/update?id=${item.id}" class="btn btn-warning">Isbn</a>
                 </td>
             </tr>
         </c:forEach>
